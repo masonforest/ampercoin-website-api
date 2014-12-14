@@ -10,6 +10,7 @@ gem 'pg'
 gem 'pry'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'rails', '4.1.4'
+gem 'rails_12factor', group: :production
 gem 'sass-rails', '~> 4.0.3'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
