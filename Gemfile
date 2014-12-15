@@ -1,13 +1,14 @@
 source 'https://rubygems.org'
 
 
-gem 'blockchain'
 gem 'coffee-rails', '~> 4.0.0'
+gem 'coinbase', '~> 2.0'
 gem 'dotenv-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'pg'
 gem 'pry'
+gem 'pusher'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'rails', '4.1.4'
 gem 'rails_12factor', group: :production
@@ -22,5 +23,6 @@ group 'test','development' do
 end
 
 group 'test' do
+  gem 'factory_girl_rails'
   gem 'webmock', require: 'webmock/rspec'
 end

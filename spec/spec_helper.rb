@@ -5,4 +5,5 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 RSpec.configure do |config|
   config.include Requests::JsonHelpers, type: :controller
+  config.include FactoryGirl::Syntax::Methods
 end

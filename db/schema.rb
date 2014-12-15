@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141214013314) do
+ActiveRecord::Schema.define(version: 20141214060602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,10 +19,11 @@ ActiveRecord::Schema.define(version: 20141214013314) do
 
   create_table "orders", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "address"
-    t.decimal  "amount",          precision: 11, scale: 3
+    t.decimal  "amount",              precision: 11, scale: 3
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "payment_address"
+    t.string   "payment_transaction"
   end
 
 end
