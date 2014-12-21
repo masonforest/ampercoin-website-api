@@ -10,6 +10,6 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:amount, :address)
+    params.require(:order).permit(:account_id)
   end
 end
