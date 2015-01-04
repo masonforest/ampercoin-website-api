@@ -2,8 +2,7 @@ class PaymentsController < ApplicationController
   def create
     order = Order.find(params[:order_id])
 
-    order.update(payment_transaction: params[:transaction][:id] )
-    Pusher.trigger(:payments, :paid, {order_id: order.id})
+    order.pay(payment_transaction: params[:transaction][:id] )
 
     head status: :ok
   end

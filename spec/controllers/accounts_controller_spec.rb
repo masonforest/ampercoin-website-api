@@ -8,4 +8,14 @@ describe AccountsController, type: :controller do
       expect(json['account']['public_key']).to eq('abc')
     end
   end
+
+  describe 'GET /accounts' do
+    it 'shows how many accounts are left' do
+      create(:account, :paid)
+
+      get :index
+
+      expect(json['meta']['accounts_remaining']).to eq 9999
+    end
+  end
 end

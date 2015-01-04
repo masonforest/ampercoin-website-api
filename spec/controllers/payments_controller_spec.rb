@@ -4,8 +4,10 @@ describe PaymentsController, :type => :controller do
   describe 'POST /purchases' do
     it 'alerts all he clients' do
       #stub_blockchain("1LrajjY5YcJhdSzepqQNdshrLsqBekN7CF")
-      stub_coinbase("1LrajjY5YcJhdSzepqQNdshrLsqBekN7CF")
       order = create(:order)
+      stub_request(:post, "#{ENV['AMPERCOIN_NODE']}/aaccounts")
+      stub_coinbase("1LrajjY5YcJhdSzepqQNdshrLsqBekN7CF")
+
 
       allow(Pusher).to receive(:trigger)
 
@@ -14,6 +16,7 @@ describe PaymentsController, :type => :controller do
       order.reload
       expect(order).to be_paid
       expect(Pusher).to have_received(:trigger).with(:payments, :paid, {order_id: order.id})
+      expect(a_request(:post, "#{ENV['AMPERCOIN_NODE']}/accounts")).to have_been_made
     end
   end
 end

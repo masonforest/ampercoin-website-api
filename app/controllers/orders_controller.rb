@@ -10,6 +10,6 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:account_id)
+    params.require(:order).permit(:preordered_account_id)
   end
 end
