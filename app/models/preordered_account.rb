@@ -13,6 +13,6 @@ class PreorderedAccount < ActiveRecord::Base
   end
 
   def self.remaining
-    10000 - paid.count
+    20000 - paid.count
   end
 end
