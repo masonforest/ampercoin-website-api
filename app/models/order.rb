@@ -45,7 +45,8 @@ class Order < ActiveRecord::Base
         account: {
           address: preordered_account.address,
           public_key: preordered_account.public_key
-        }
+        },
+        key: ENV['AMPERCOIN_SECRET_KEY']
       }
     )
   end
